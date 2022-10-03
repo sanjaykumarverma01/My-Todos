@@ -1,0 +1,45 @@
+import * as types from "./actionType";
+import axios from "axios";
+
+const signup = (payload) => async (dispatch) => {
+  dispatch({
+    type: types.USER_SIGNUP_REQUEST,
+  });
+  return axios
+    .post(`https://sanjay-crud-fullstack-api.herokuapp.com/user/signup`, payload)
+    .then((res) => {
+      console.log(res.data);
+      return dispatch({
+        type: types.USER_SIGNUP_SUCCESS,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch({
+        type: types.USER_SIGNUP_FAILURE,
+      });
+    });
+};
+
+const login = (payload) => async (dispatch) => {
+  dispatch({
+    type: types.USER_LOGIN_REQUEST,
+  });
+  return axios
+    .post(`https://sanjay-crud-fullstack-api.herokuapp.com/user/login`, payload)
+    .then((res) => {
+      console.log(res.data);
+      return dispatch({
+        type: types.USER_LOGIN_SUCCESS,
+        token: res.data.token,
+      });
+    })
+    .catch((err) => {
+      console.log(err.data);
+      dispatch({
+        type: types.USER_LOGIN_FAILURE,
+      });
+    });
+};
+
+export { signup, login };
