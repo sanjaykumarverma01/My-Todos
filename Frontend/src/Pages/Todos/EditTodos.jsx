@@ -16,19 +16,24 @@ const EditTodos = () => {
   const [heading, setHeading] = useState("");
   const [note, setNote] = useState("");
   const [task, setTask] = useState("");
+  const [deadline, setDeadline] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const comingFrom = location?.state?.from?.pathname || "/todos";
 
   const getTodo = () => {
     axios
-      .get(`https://sanjay-crud-fullstack-api.herokuapp.com/todos/${params.id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        `https://sanjay-crud-fullstack-api.herokuapp.com/todos/${params.id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((res) => {
         setHeading(res.data.heading);
         setNote(res.data.note);
         setTask(res.data.task);
+        setDeadline(res.data.deadline);
       });
   };
 
@@ -37,6 +42,7 @@ const EditTodos = () => {
       heading: heading,
       task: task,
       note: note,
+      deadline: deadline,
     };
     dispatch(updateTodo(id, token, payload)).then((res) => {
       if (res.type === UPDATE_TODOS_SUCCESS) {
@@ -69,6 +75,11 @@ const EditTodos = () => {
             variant="filled"
             onChange={(e) => setNote(e.target.value)}
             value={note}
+          />
+          <Input
+            variant="filled"
+            type="date"
+            onChange={(e) => setDeadline(e.target.value)}
           />
 
           <Button onClick={handleUpdateTodo} colorScheme="cyan">

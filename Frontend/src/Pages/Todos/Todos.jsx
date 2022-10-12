@@ -113,6 +113,14 @@ const Todos = () => {
                   br="1px solid white"
                   borderRight="1px solid black"
                 >
+                  Deadline
+                </Th>
+                <Th
+                  color="white"
+                  textAlign="center"
+                  br="1px solid white"
+                  borderRight="1px solid black"
+                >
                   Task Status
                 </Th>
                 <Th
@@ -146,6 +154,9 @@ const Todos = () => {
                       </Td>
                       <Td textAlign="center" border="1px solid black">
                         {todo.note}
+                      </Td>
+                      <Td textAlign="center" border="1px solid black">
+                        {todo.deadline}
                       </Td>
                       <Td textAlign="center" border="1px solid black">
                         <Button

@@ -55,6 +55,13 @@ const AddTodos = () => {
           onChange={(e) => setNote(e.target.value)}
           style={{ marginTop: "15px", marginBottom: "15px" }}
         />
+        <FormLabel>Deadline</FormLabel>
+        <Input
+          variant="filled"
+          type="date"
+          onChange={(e) => setNote(e.target.value)}
+          style={{ marginTop: "15px", marginBottom: "15px" }}
+        />
         <Button onClick={handleAddTodo} colorScheme="cyan">
           Add
         </Button>
