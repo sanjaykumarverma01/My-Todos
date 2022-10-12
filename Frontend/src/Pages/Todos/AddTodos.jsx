@@ -10,7 +10,7 @@ const AddTodos = () => {
   const [heading, setHeading] = useState("");
   const [task, setTask] = useState("");
   const [note, setNote] = useState("");
-
+  const [deadline, setDeadline] = useState("");
   const token = loadData("token");
   const dispatch = useDispatch();
 
@@ -23,6 +23,7 @@ const AddTodos = () => {
       heading: heading,
       task: task,
       note: note,
+      deadline: deadline,
     };
     dispatch(createTodo(payload, token)).then((res) => {
       if (res.type === CREATE_TODOS_SUCCESS) {
@@ -59,7 +60,7 @@ const AddTodos = () => {
         <Input
           variant="filled"
           type="date"
-          onChange={(e) => setNote(e.target.value)}
+          onChange={(e) => setDeadline(e.target.value)}
           style={{ marginTop: "15px", marginBottom: "15px" }}
         />
         <Button onClick={handleAddTodo} colorScheme="cyan">
