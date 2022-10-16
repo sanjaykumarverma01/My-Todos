@@ -2,15 +2,23 @@
   text-align: center;
 }
 
-
-.nav{
-  border-bottom: 2px solid rgb(188, 181, 181);
+.nav {
+  box-shadow: 0 0 8px #00000054;
+  /* border-bottom: 2px solid rgb(188, 181, 181); */
   display: flex;
-  padding: .6%;
+  padding: 2.6% 0;
   justify-content: space-around;
 }
 
-.th{
+.th {
   background-color: tomato;
   text-align: center;
+}
+button {
+  box-shadow: 0 0 5px #0000003b;
+  color: #fff !important;
+}
+
+.nav_header_home:hover span {
+  color: #0bc5ea !important;
 }
