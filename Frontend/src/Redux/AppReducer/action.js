@@ -7,7 +7,7 @@ const getTodos = (token) => async (dispatch) => {
   dispatch({
     type: types.GET_TODOS_REQUEST,
   });
-  return axios(`${url}/todos`, {
+  return axios.get(`${url}/todos`, {
     headers: { Authorization: `Bearer ${token}` },
   })
     .then((res) => {

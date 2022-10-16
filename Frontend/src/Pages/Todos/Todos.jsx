@@ -160,7 +160,7 @@ const Todos = () => {
                       </Td>
                       <Td textAlign="center" border="1px solid black">
                         <Button
-                          variant="link"
+                          variant="outline"
                           colorScheme={todo.status ? "green" : "red"}
                           onClick={() => {
                             handleStatus(todo._id, todo.status);
@@ -171,7 +171,7 @@ const Todos = () => {
                       </Td>
                       <Td textAlign="center" border="1px solid black">
                         <Button
-                          variant="link"
+                          variant="outline"
                           colorScheme="orange"
                           onClick={() => {
                             handleDelete(todo._id, token);
@@ -181,7 +181,7 @@ const Todos = () => {
                         </Button>
                       </Td>
                       <Td textAlign="center" border="1px solid black">
-                        <Button variant="link" colorScheme="blue">
+                        <Button variant="outline" colorScheme="blue">
                           <Link to={`/todos/edit/${todo._id}`}>Edit</Link>
                         </Button>
                       </Td>
