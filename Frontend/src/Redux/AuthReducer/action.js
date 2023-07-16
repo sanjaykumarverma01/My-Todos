@@ -1,12 +1,13 @@
 import * as types from "./actionType";
 import axios from "axios";
 
+const url = "https://jittery-cow-loincloth.cyclic.app"
 const signup = (payload) => async (dispatch) => {
   dispatch({
     type: types.USER_SIGNUP_REQUEST,
   });
   return axios
-    .post(`https://sanjay-crud-fullstack-api.herokuapp.com/user/signup`, payload)
+    .post(`${url}/user/signup`, payload)
     .then((res) => {
       console.log(res.data);
       return dispatch({
@@ -26,7 +27,7 @@ const login = (payload) => async (dispatch) => {
     type: types.USER_LOGIN_REQUEST,
   });
   return axios
-    .post(`https://sanjay-crud-fullstack-api.herokuapp.com/user/login`, payload)
+    .post(`${url}/user/login`, payload)
     .then((res) => {
       console.log(res.data);
       return dispatch({

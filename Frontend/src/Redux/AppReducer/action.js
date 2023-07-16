@@ -1,7 +1,7 @@
 import * as types from "./actionType";
 import axios from "axios";
 
-const url = "https://sanjay-crud-fullstack-api.herokuapp.com";
+const url = "https://jittery-cow-loincloth.cyclic.app";
 
 const getTodos = (token) => async (dispatch) => {
   dispatch({
