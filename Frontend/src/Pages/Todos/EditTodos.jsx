@@ -55,7 +55,7 @@ const EditTodos = () => {
 
   useEffect(() => {
     getTodo();
-  }, []);
+  }, [getTodo]);
   return (
     <Box>
       <Heading size="lg">Edit Todos</Heading>
