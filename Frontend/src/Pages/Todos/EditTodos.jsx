@@ -21,21 +21,6 @@ const EditTodos = () => {
   const location = useLocation();
   const comingFrom = location?.state?.from?.pathname || "/todos";
 
-  const getTodo = () => {
-    axios
-      .get(
-        `https://sanjay-crud-fullstack-api.herokuapp.com/todos/${params.id}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((res) => {
-        setHeading(res.data.heading);
-        setNote(res.data.note);
-        setTask(res.data.task);
-        setDeadline(res.data.deadline);
-      });
-  };
 
   const handleUpdateTodo = () => {
     const payload = {
@@ -54,8 +39,24 @@ const EditTodos = () => {
   };
 
   useEffect(() => {
-    getTodo();
-  }, [getTodo]);
+    const getTodo = () => {
+      axios
+        .get(
+          `https://sanjay-crud-fullstack-api.herokuapp.com/todos/${params.id}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
+        .then((res) => {
+          setHeading(res.data.heading);
+          setNote(res.data.note);
+          setTask(res.data.task);
+          setDeadline(res.data.deadline);
+        });
+    };
+
+    getTodo()
+  }, []);
   return (
     <Box>
       <Heading size="lg">Edit Todos</Heading>
