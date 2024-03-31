@@ -56,7 +56,7 @@ const EditTodos = () => {
     };
 
     getTodo()
-  }, [id]);
+  }, [id,token]);
   return (
     <Box>
       <Heading size="lg">Edit Todos</Heading>
