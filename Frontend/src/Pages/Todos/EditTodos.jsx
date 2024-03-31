@@ -42,7 +42,7 @@ const EditTodos = () => {
     const getTodo = () => {
       axios
         .get(
-          `https://sanjay-crud-fullstack-api.herokuapp.com/todos/${params.id}`,
+          `https://sanjay-crud-fullstack-api.herokuapp.com/todos/${id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -56,7 +56,7 @@ const EditTodos = () => {
     };
 
     getTodo()
-  }, []);
+  }, [id]);
   return (
     <Box>
       <Heading size="lg">Edit Todos</Heading>
