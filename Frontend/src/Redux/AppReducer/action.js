@@ -1,7 +1,7 @@
 import * as types from "./actionType";
 import axios from "axios";
 
-const url = "backend-omega-wheat.vercel.app";
+const url = "https://backend-omega-wheat.vercel.app";
 
 const getTodos = (token) => async (dispatch) => {
   dispatch({

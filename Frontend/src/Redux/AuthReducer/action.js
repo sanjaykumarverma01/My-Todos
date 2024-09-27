@@ -1,7 +1,7 @@
 import * as types from "./actionType";
 import axios from "axios";
 
-const url = "backend-omega-wheat.vercel.app";
+const url = "https://backend-omega-wheat.vercel.app";
 const signup = (payload) => async (dispatch) => {
   dispatch({
     type: types.USER_SIGNUP_REQUEST,
