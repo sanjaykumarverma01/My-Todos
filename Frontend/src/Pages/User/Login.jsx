@@ -14,29 +14,29 @@
 // import { saveData } from "../../Utils/accessLocalStorage";
 
 // const Login = () => {
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const location = useLocation();
-  // const comingFrom = location?.state?.from?.pathname || "/todos";
+// const navigate = useNavigate();
+// const dispatch = useDispatch();
+// const [email, setEmail] = useState("");
+// const [password, setPassword] = useState("");
+// const location = useLocation();
+// const comingFrom = location?.state?.from?.pathname || "/todos";
 
-  // const handleSubmit = () => {
-  //   const payload = {
-  //     email: email,
-  //     password: password,
-  //   };
-  //   dispatch(login(payload)).then((res) => {
-  //     if (res.type === USER_LOGIN_SUCCESS) {
-  //       saveData("token", res.token);
-  //       saveData("isAuth", true);
-  //       if (res.token) {
-  //         alert("Login successful");
-  //         navigate(comingFrom, { replace: true });
-  //       }
-  //     }
-  //   });
-  // };
+// const handleSubmit = () => {
+//   const payload = {
+//     email: email,
+//     password: password,
+//   };
+//   dispatch(login(payload)).then((res) => {
+//     if (res.type === USER_LOGIN_SUCCESS) {
+//       saveData("token", res.token);
+//       saveData("isAuth", true);
+//       if (res.token) {
+//         alert("Login successful");
+//         navigate(comingFrom, { replace: true });
+//       }
+//     }
+//   });
+// };
 //   return (
 //     <Box>
 //       <Flex textAlign="left" p="1%" justifyContent="space-evenly">
@@ -77,8 +77,6 @@
 
 // export { Login };
 
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -89,13 +87,16 @@ import {
   InputGroup,
   InputRightElement,
   Stack,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { FiArrowLeft, FiEye, FiEyeOff, FiUserPlus } from "react-icons/fi";
-import { useDispatch } from "react-redux";
-import { login } from "../../Redux/AuthReducer/action";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+
 import { USER_LOGIN_SUCCESS } from "../../Redux/AuthReducer/actionType";
+import { login } from "../../Redux/AuthReducer/action";
 import { saveData } from "../../Utils/accessLocalStorage";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -106,7 +107,7 @@ const Login = () => {
 
   const location = useLocation();
   const comingFrom = location?.state?.from?.pathname || "/todos";
-  
+
   const Toast = useToast();
 
   const handleSubmit = () => {
@@ -175,16 +176,20 @@ const Login = () => {
       <Box width={"70%"} marginTop={"20%"}>
         <Stack spacing={10}>
           <Flex justifyContent="space-between" alignItems="center">
-            <Button
-              variant="ghost"
-              colorScheme="cyan"
-              leftIcon={<FiArrowLeft />}
-            >
-              <Link to="/">Back to Home</Link>
-            </Button>
-            <Button colorScheme="cyan" leftIcon={<FiUserPlus />}>
-              <Link to="/signup">Sign up</Link>
-            </Button>
+            <Link to="/">
+              <Button
+                variant="ghost"
+                colorScheme="cyan"
+                leftIcon={<FiArrowLeft />}
+              >
+                Back to Home
+              </Button>
+            </Link>
+            <Link to="/signup">
+              <Button colorScheme="cyan" leftIcon={<FiUserPlus />}>
+                Sign up
+              </Button>
+            </Link>
           </Flex>
           <Box>
             <FormControl display={"flex"} flexDirection={"column"} gap={"20px"}>
