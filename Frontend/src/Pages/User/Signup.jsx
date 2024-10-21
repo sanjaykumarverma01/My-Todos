@@ -1,8 +1,3 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate, useLocation, Link } from "react-router-dom";
-import { signup } from "../../Redux/AuthReducer/action";
-import { USER_SIGNUP_SUCCESS } from "../../Redux/AuthReducer/actionType";
 import {
   Box,
   Button,
@@ -16,6 +11,12 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { FiArrowLeft, FiEye, FiEyeOff, FiUserPlus } from "react-icons/fi";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+
+import { USER_SIGNUP_SUCCESS } from "../../Redux/AuthReducer/actionType";
+import { signup } from "../../Redux/AuthReducer/action";
+import { useDispatch } from "react-redux";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -99,16 +100,20 @@ const Signup = () => {
       <Box width="70%" marginTop={"10%"}>
         <Stack spacing={10}>
           <Flex justifyContent="space-between" alignItems="center">
-            <Button
-              variant="ghost"
-              colorScheme="cyan"
-              leftIcon={<FiArrowLeft />}
-            >
-              <Link to="/">Back to Home</Link>
-            </Button>
-            <Button colorScheme="cyan" leftIcon={<FiUserPlus />}>
-              <Link to="/login">Login</Link>
-            </Button>
+            <Link to="/">
+              <Button
+                variant="ghost"
+                colorScheme="cyan"
+                leftIcon={<FiArrowLeft />}
+              >
+                Back to Home
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button colorScheme="cyan" leftIcon={<FiUserPlus />}>
+                Login
+              </Button>
+            </Link>
           </Flex>
           <Box>
             <FormControl display={"flex"} flexDirection={"column"} gap={"20px"}>
@@ -143,7 +148,7 @@ const Signup = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-               <InputRightElement>
+                <InputRightElement>
                   <Button
                     variant="unstyled"
                     size={"auto"}
